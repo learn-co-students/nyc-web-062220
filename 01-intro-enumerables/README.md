@@ -5,12 +5,19 @@
 - Data Types
 
 - Integer
-    - Float
-    - Boolean
-    - String
-    - Symbol
-    - Array
-    - Hash
+    - 1 
+- Float
+- Boolean
+- String
+- Symbol
+- Array
+- if order is important
+- if I want a list 
+
+- Hash
+{name: "MJ", rebounds: 2}
+{name: "Pippen", rebounds: 20}
+- I need to keep all of the data associated with the same thing
 
 - Methods
 
@@ -22,10 +29,16 @@
 
 # Lecture Topics
 
-- Enumerables
-    - map/collect
+- Enumerables: a method for a data type (usually an array or hash) that goes into that data type and executes some line(s) of code for each element in that datatype
+    - map/.collect
+        - why use .map instead of .each
+            - if the thing we want to return is an array 
+
     - select/filter
-    - find
+        - if we want a filtered array
+
+    - find/detect
+        - if we want to find the first element inside an array that matches a condition
 
 - irb vs pry gem
 
@@ -41,14 +54,14 @@
 
 - Assessments
 
-    - We take everything into consideration
+    - We take everything into consideration: 1-5
         - Code Challenges are important but their not the online thing
             - attendance
-            - lab completion
+            - lab completion -- 90%
             - lecture participation
             - individual assignments
             - projects
             - project presentations
             - blogs
             - blog presentations
-            - overall community impact 
+            - overall community impact
