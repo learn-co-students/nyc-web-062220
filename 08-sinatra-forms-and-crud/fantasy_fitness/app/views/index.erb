@@ -1,0 +1,6 @@
+<h1>Trainers Index Page</h1>
+
+
+<% @trainers.each do |trainer| %>
+  <p><a href="/trainers/<%= trainer.id %>"><%= trainer.name %></a></p>
+<% end %> 
