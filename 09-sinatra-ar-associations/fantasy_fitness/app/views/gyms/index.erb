@@ -1,0 +1,6 @@
+<h1>Gyms Index Page</h1>
+
+
+<% @gyms.each do |gym| %>
+  <p><a href="/gyms/<%= gym.id %>"><%= gym.name %></a></p>
+<% end %> 

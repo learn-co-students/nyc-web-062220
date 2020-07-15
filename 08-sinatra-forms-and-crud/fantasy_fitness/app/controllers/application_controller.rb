@@ -25,9 +25,9 @@ class ApplicationController < Sinatra::Base
 
   # CREATE Action
   post '/trainers' do 
-    @trainer = Trainer.create(params)
-
-    redirect to "/trainers/#{@trainer.id}"
+    trainer = Trainer.create(params)
+    
+    redirect to "/trainers/#{trainer.id}"
   end 
 
   # SHOW Action

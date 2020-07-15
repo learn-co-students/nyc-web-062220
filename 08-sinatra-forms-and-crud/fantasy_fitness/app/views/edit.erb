@@ -1,6 +1,6 @@
 <h1>Edit Trainer</h1>
 
-<form action="/trainers/<%= @trainer.id %>" method="POST">
+<form action="/trainers/<%= @trainer.id %>" method="PATCH">
   <input type="hidden" name="_method" value="PATCH">
   <input type="text" name="trainer[name]" value="<%= @trainer.name %>" placeholder="name">
   <input type="text" name="trainer[bio]" value="<%= @trainer.bio %>" placeholder="bio">

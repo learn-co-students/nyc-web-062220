@@ -1,0 +1,12 @@
+<h1>Gym Show</h1>
+
+<h4><%= @gym.name %></h4>
+
+<img src="<%= @gym.img_url %>" alt="<%= @gym.name %> logo">
+
+
+<h2>ALL Our Trainers</h2>
+
+<% @gym.trainers.each do |trainer| %>
+  <p><a href="/trainers/<%= trainer.id%>"><%= trainer.name %></a></p>
+<% end %>

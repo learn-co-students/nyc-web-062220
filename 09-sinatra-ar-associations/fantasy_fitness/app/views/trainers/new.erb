@@ -4,5 +4,12 @@
   <input type="text" name="name" placeholder="name">
   <input type="text" name="bio" placeholder="bio">
   <input type="number" name="age" placeholder="age">
+
+  <select name="gym_id">
+    <% @gyms.each do |gym|%>
+      <option value="<%= gym.id %>"> <%= gym.name %> </option>
+    <% end %>
+  </select>
+
   <input type="submit">
 </form>

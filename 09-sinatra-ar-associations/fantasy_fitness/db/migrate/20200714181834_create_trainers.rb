@@ -4,7 +4,7 @@ class CreateTrainers < ActiveRecord::Migration
       t.string :name
       t.string :bio
       t.integer :age
-    
+      
       t.timestamps
     end
     
