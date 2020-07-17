@@ -1,0 +1,9 @@
+<h1>Item Show Page</h1>
+
+<h3><%= @item.name %></h3>
+<p>Price: $<%= @item.price %></p>
+<p>Category: <%= @item.category %></p>
+
+<marquee><img src="<%= @item.img_url %>" alt="<%= @item.name%>"></marquee>
+
+<%= button_to "DELETE", item_path(@item), method: :delete %>
