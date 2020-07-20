@@ -1,0 +1,15 @@
+<%= form_for @item do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.label :img_url %>
+  <%= f.text_field :img_url %>
+  
+  <%= f.submit %>
+<% end %>
