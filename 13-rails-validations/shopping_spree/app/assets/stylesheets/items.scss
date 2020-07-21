@@ -1,0 +1,61 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  // background-color: rgba(0, 0, 0, 0.5) ;
+  background-color: lightgray;
+}
+
+.index-img {
+  max-width: 150px;
+}
+
+.show-img {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 5px solid rgb(125, 225, 242);
+  padding: 30px;
+  border-radius: 25px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  max-width: 90%;
+  margin: 0px auto;
+  padding: 20px;
+  height: 150vh;
+}
+
+.index-container {
+  display: flex;
+  flex-flow: row wrap;
+  // justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+.index-tile {
+  border: 5px solid rgb(125, 225, 242);
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  width: 20%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(125, 225, 242);
+  font-weight: 900;
+}
+
+.btn {
+  color: rgb(125, 225, 242);
+  font-weight: 900;
+  border-radius: 25px;
+  padding: 5px 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+

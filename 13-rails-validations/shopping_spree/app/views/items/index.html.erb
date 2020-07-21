@@ -1,0 +1,11 @@
+<h1>Items Index Page</h1>
+<div class="index-container container">
+
+  <% @items.each do |item| %>
+    <div class="index-tile">
+      <h3><%=link_to item.name, item_path(item.id) %></h3>
+      <img class="index-img" src="<%= item.img_url %>" alt="<%= item.name%>">
+      <%= button_to "X", item, method: :delete, class: 'btn' %>
+    </div>
+  <% end %>
+</div>
