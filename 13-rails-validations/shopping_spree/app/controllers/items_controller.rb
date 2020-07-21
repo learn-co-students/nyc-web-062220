@@ -14,14 +14,24 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+  
     render :new
   end 
-
+  
   def create 
-   item = Item.create(item_params) 
+    @item = Item.create(item_params) 
 
+    # @item = Item.new(item_params) 
+    # if @item.save
+
+    if @item.valid?
+      flash[:success] = "SWEET NEW ITEM"
+      redirect_to item_path(@item)
+    else 
+      flash[:my_errors] = @item.errors.full_messages
+      redirect_to new_item_path 
+    end 
     # redirect_to item_path(item.id)
-    redirect_to item_path(item)
     # redirect_to item
   end 
 
@@ -31,9 +41,14 @@ class ItemsController < ApplicationController
 
   def update 
     # @item = Item.find(params[:id])
-    @item.update(item_params)
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      flash[:my_errors] = @item.errors.full_messages 
+      redirect_to edit_item_path
+    end 
+
     
-    redirect_to item_path(@item)
   end 
   
   def destroy 

@@ -1,4 +1,8 @@
 <div class="container">
+  <% if flash[:success] %>
+    <h1><%= flash[:success] %></h1>
+  <% end %>
+  
   <h1>Item Show Page</h1>
 
   <h3><%= @item.name %></h3>
