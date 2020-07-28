@@ -1,0 +1,15 @@
+<div class='container'>
+  <h1>User Show</h1>
+
+
+  <h3> <%= @user.name %> </h3>
+  <p> <%= @user.slogan %> </p>
+
+  <marquee> <img src="<%= @user.img_url %>" alt="<%= @user.name %>" class="show-img"> </marquee>
+
+  <h1>All of My Items</h1>
+
+  <% @user.items.each do |item| %>
+    <p><%= item.name %></p>
+  <% end %>
+</div>

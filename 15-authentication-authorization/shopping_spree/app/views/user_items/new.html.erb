@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>New UserItem</h1>
+
+  <%= form_for @user_item do |f| %>
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, @users, :id, :name %>
+    
+    <%= f.label :item_id %>
+    <%= f.collection_select :item, @items, :id, :name %>
+
+
+
+    <%= f.submit %>
+  <% end %>
+</div>
+

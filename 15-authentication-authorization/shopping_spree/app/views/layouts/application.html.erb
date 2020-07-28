@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShoppingSpree</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class='banner'>
+      <img class='logo' src="https://4.bp.blogspot.com/-lTSnY6FW90g/Umg0MMyJ0jI/AAAAAAAACv0/WgVMnX4pf-4/s1600/spree_logo_2013_final.jpg" alt="barlogo">
+    </div>
+
+    <ul>
+      <li><%= link_to 'User Home', users_path %></li>
+      <li><%= link_to 'Item Home', items_path %></li>
+      <li><%= link_to 'New Item', new_item_path %></li>
+      <li class='right'><%= link_to 'Sign-up', new_user_path %></li>
+    </ul>
+
+    <%= yield %>
+  </body>
+</html>

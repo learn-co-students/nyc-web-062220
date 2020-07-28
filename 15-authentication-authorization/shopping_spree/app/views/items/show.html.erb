@@ -1,0 +1,24 @@
+<div class="container">
+  <% if session[:page_count].to_i <= 3 %>
+
+  <h1><%= 3 - session[:page_count].to_i %>Page Views Left</h1>
+
+  <% if flash[:success] %>
+    <h1><%= flash[:success] %></h1>
+  <% end %>
+  
+  <h1>Item Show Page</h1>
+
+  <h3><%= @item.name %></h3>
+  <p>Price: $<%= @item.price %></p>
+  <p>Category: <%= @item.category %></p>
+
+
+  <marquee><img src="<%= @item.img_url %>" alt="<%= @item.name%>" class="show-img"></marquee>
+
+  <%= button_to "DELETE", item_path(@item), method: :delete %>
+
+  <% else %>
+    <%= render 'ad' %>
+  <% end %>
+</div>
