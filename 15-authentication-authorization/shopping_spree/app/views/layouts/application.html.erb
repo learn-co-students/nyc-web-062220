@@ -18,7 +18,11 @@
       <li><%= link_to 'User Home', users_path %></li>
       <li><%= link_to 'Item Home', items_path %></li>
       <li><%= link_to 'New Item', new_item_path %></li>
-      <li class='right'><%= link_to 'Sign-up', new_user_path %></li>
+      <% if @current_user %>
+        <li class='right'>Welcome <%= @current_user.name %>!!!</li>
+      <% else %>
+        <li class='right'><%= link_to 'Sign-up', new_user_path %></li>
+      <% end %>
     </ul>
 
     <%= yield %>
