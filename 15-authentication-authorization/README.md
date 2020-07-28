@@ -2,6 +2,10 @@
 ===
 
 
+<!-- you only view your own proifile -->
+<!-- can only create a userItem for logged in user -->
+
+
 ## SWBATs
 - Understand, theoretically, how authentication and authorization work
   - Understand the _difference_ between authentication and authorization and how they fit under the umbrella topic _auth_

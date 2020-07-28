@@ -1,4 +1,7 @@
 
+ <% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+ <% end %>
 <div class="index-container container">
 
   <% @users.each do |user| %>
