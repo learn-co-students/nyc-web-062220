@@ -81,14 +81,6 @@
       "id": 15
     },
     {
-      "year": "1986",
-      "title": "Predator",
-      "genre": "Horror",
-      "imageUrl": "https://movieposters2.com/images/1566923-b.jpg",
-      "score": 0,
-      "id": 16
-    },
-    {
       "title": "The Vast of Night",
       "year": "2019",
       "genre": "SciFi",
@@ -128,22 +120,6 @@
       "score": 0,
       "beef": "cow",
       "id": 21
-    },
-    {
-      "title": "Lion King",
-      "year": "2020",
-      "genre": "Family",
-      "imageUrl": "https://i.pinimg.com/originals/0d/b5/61/0db56154689d32e3496240eaf4c95798.jpg",
-      "score": 0,
-      "id": 22
-    },
-    {
-      "title": "Lion King 2",
-      "year": "2020",
-      "genre": "Family",
-      "imageUrl": "https://i.pinimg.com/originals/0d/b5/61/0db56154689d32e3496240eaf4c95798.jpg",
-      "score": 0,
-      "id": 23
     }
   ]
 }

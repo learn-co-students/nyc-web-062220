@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       <h4>Score: <span>${movieObj.score}</span> </h4>
       <button class="up-vote">Up Vote</button>
       <button>Down Vote</button>
-      <button>&times;</button>
+      <button class="delete">&times;</button>
     `
     
     list.append(movieLi)
@@ -87,6 +87,20 @@ document.addEventListener('DOMContentLoaded', function(e){
 
         button.textContent = 'Show Form'
         button.id = "show-form"
+      } else if(e.target.matches(".delete")){
+        const button = e.target
+        const parentLi = button.parentElement
+        const movieId = parentLi.id
+
+        const options = {
+          method: "DELETE"
+        }
+        
+        fetch(url + movieId, options)
+        .then(res => {
+          parentLi.remove()
+        })
+
       }
     })
   }
@@ -144,3 +158,4 @@ document.addEventListener('DOMContentLoaded', function(e){
   clickHandler()
   getMovies()
 })
+
