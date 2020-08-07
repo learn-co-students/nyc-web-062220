@@ -1,14 +1,14 @@
 console.log("forms are cool")
 
 document.addEventListener('DOMContentLoaded', function(e){
-
-  const movieList = document.querySelector("#movie-list")
-
-  function renderMovie(movieObj){
-    const gooniesLi = document.createElement('li')
-    gooniesLi.classList.add("movie")
+  const url = "http://localhost:3000/movies/"
+  
+  function renderMovie(movieObj, list){
+    const movieLi = document.createElement('li')
+    movieLi.classList.add("movie")
+    movieLi.id = movieObj.id
     
-    gooniesLi.innerHTML = `
+    movieLi.innerHTML = `
       <h3>${movieObj.title}</h3>
       <img alt=""
           src="${movieObj.imageUrl}" />
@@ -20,23 +20,43 @@ document.addEventListener('DOMContentLoaded', function(e){
       <button>&times;</button>
     `
     
-    movieList.append(gooniesLi)
+    list.append(movieLi)
   }
 
   function renderMovies(movieCollection){
     movieCollection.forEach(function(movieObj){
-      renderMovie(movieObj)
+      const movieList = document.querySelector("#movie-list")
+      renderMovie(movieObj, movieList)
     })
   }
   
   function clickHandler(){
     document.addEventListener("click", function(e){
       if(e.target.matches(".up-vote")){
+        // pessimistic rendering
         const button = e.target
         const parentLi = button.parentElement
+        const movieId = parentLi.id
         const scoreSpan = parentLi.querySelector("span")
+        const newScore = parseInt(scoreSpan.textContent) + 1
+
+        const options = {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            "accept": "application/json"
+          },
+          body: JSON.stringify({ score: newScore })
+        }
+
+
+        fetch(url + movieId, options)
+        .then(res => res.json())
+        .then(movieObj => {
+          scoreSpan.textContent = movieObj.score
+        })
         
-        scoreSpan.textContent = parseInt(scoreSpan.textContent) + 1
+        // scoreSpan.textContent = parseInt(scoreSpan.textContent) + 1
       } else if (e.target.matches('#show-form')){
         const button = e.target
         const newMovieForm = document.createElement('form')
@@ -75,6 +95,9 @@ document.addEventListener('DOMContentLoaded', function(e){
     document.addEventListener('submit', e => {
       e.preventDefault()
 
+      // optimistic rendering
+
+      //----- DOM Manipulation -----
       const newMovieForm = e.target
 
       const title = newMovieForm.title.value
@@ -83,16 +106,36 @@ document.addEventListener('DOMContentLoaded', function(e){
       const imageUrl = newMovieForm.imageUrl.value
       const score = 0
 
-      const movieObj = { title: title, year: year, genre: genre, imageUrl: imageUrl, score: score }
+      const movieObj = { 
+        title: title, 
+        year: year, 
+        genre: genre, 
+        imageUrl: imageUrl, 
+        score: score 
+      }
 
-      renderMovie(movieObj)
+      const movieList = document.querySelector("#movie-list")
+      renderMovie(movieObj, movieList)
 
       newMovieForm.reset()
+
+      //----- DB Transaction -----
+      
+      const options = {
+        method: "POST",
+        headers: {
+          "content-type": "application/json", // mime type
+          "accept": "application/json"
+        },
+        body: JSON.stringify(movieObj)
+      }
+
+      fetch(url, options) 
     })
   }
 
   const getMovies = () => {
-    fetch("http://localhost:3000/movies")
+    fetch(url)
     .then(response => response.json())
     .then(movieCollection => renderMovies(movieCollection))
   }

@@ -6,7 +6,7 @@
       "imageUrl": "https://resizing.flixster.com/h8e7W7cVaQhuLdSvABDkJk6r5sc=/206x305/v1.bTsxMTE2NjE5OTtqOzE4MzU0OzEyMDA7ODAwOzEyMDA",
       "year": 1975,
       "genre": "Horror",
-      "score": 30
+      "score": 47
     },
     {
       "id": 2,
@@ -128,12 +128,22 @@
       "score": 0,
       "beef": "cow",
       "id": 21
-    }
-  ],
-  "books":[
+    },
     {
-      "title": "Free Willy the Book", 
-      "id": 1
+      "title": "Lion King",
+      "year": "2020",
+      "genre": "Family",
+      "imageUrl": "https://i.pinimg.com/originals/0d/b5/61/0db56154689d32e3496240eaf4c95798.jpg",
+      "score": 0,
+      "id": 22
+    },
+    {
+      "title": "Lion King 2",
+      "year": "2020",
+      "genre": "Family",
+      "imageUrl": "https://i.pinimg.com/originals/0d/b5/61/0db56154689d32e3496240eaf4c95798.jpg",
+      "score": 0,
+      "id": 23
     }
   ]
 }
