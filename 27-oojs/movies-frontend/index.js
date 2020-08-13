@@ -99,7 +99,9 @@ document.addEventListener('DOMContentLoaded', function(e){
       }
 
       const movieList = document.querySelector("#movie-list")
-      renderMovie(movieObj, movieList)
+      // renderMovie(movieObj, movieList)
+      const movie = new Movie(movieObj)
+      movie.renderMovie(movieList)
 
       newMovieForm.reset()
       
