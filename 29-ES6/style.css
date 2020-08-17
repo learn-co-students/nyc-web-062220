@@ -1,0 +1,62 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color:grey;
+}
+#body_header{
+    border-bottom: solid;
+}
+.main_container{
+    display: flex;
+    
+}
+
+aside{
+ margin-right: 10%;
+ width: 25%;
+}
+main{
+}
+main h1{
+    background-color:#5b34eb ;
+    color: white;
+    padding: 5px;
+    
+ 
+}
+button{
+    background-color:#5b34eb;
+    color: white
+}
+
+.blue{
+    color:blue;
+}
+.green{
+    color:green;
+}
+
+li{
+list-style: none;
+}
+#guest_list{
+    border: solid;
+    color:grey;
+    border-color: grey;
+    padding: 10px;
+   
+}
+
+#guest_list li{
+padding:5px;
+}
+
+#guest_list form{
+    padding:5px;
+    
+}
+#guest_list form input{
+    width: 100%;
+}
+#guest_list form button{
+   width: 100%;
+}
