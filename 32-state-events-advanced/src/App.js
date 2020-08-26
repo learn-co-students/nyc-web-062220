@@ -16,6 +16,8 @@ class App extends React.Component {
     let newArray = [...this.state.beyArray]
     let foundObj = newArray.find((beyObj) => beyObj.id === id)
     foundObj.favorite = true
+    foundObj.num_of_clicks = foundObj.num_of_clicks + 1
+    // console.log(foundObj)
     // Our app needs to rerender
     this.setState({ beyArray: newArray })
   }
@@ -24,6 +26,7 @@ class App extends React.Component {
     let newArray = [...this.state.beyArray]
     let foundObj = newArray.find((beyObj) => beyObj.id === id)
     foundObj.favorite = false
+
     this.setState({ beyArray: newArray }, () => window.alert("I got a hot sauce in my bag, swag"))
 
   }
@@ -32,11 +35,15 @@ class App extends React.Component {
     return this.state.beyArray.filter((beyObj) => beyObj.favorite)
   }
 
+  sortedBeys = () => {
+    return this.state.beyArray.sort((beyObjA, beyObjB) => beyObjB.num_of_clicks - beyObjA.num_of_clicks)
+  }
+
   render() {
 
     return (
       <div className="container">
-        <BeyContainer array={beyArray} clickHandler={this.containerClickHandler} />
+        <BeyContainer array={this.sortedBeys()} clickHandler={this.containerClickHandler} />
         <Favorites array={this.filteredBeys()} clickHandler={this.favoriteClickHandler} />
       </div>
     );
