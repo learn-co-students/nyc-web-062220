@@ -4,21 +4,11 @@ import beyArray from './api'
 import BeyContainer from './BeyContainer'
 import Favorites from './Favorites'
 import CreateForm from './CreateForm'
-import SearchForm from './SearchForm'
 class App extends React.Component {
 
   state = {
-    beyArray: beyArray,
-    searchTerm: ""
+    beyArray: beyArray
   }
-
-  searchHandler = (e) => {
-    this.setState({ searchTerm: e.target.value })
-  }
-  searchArray = () => {
-    return this.state.beyArray.filter((beyObj) => beyObj.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-  }
-
 
   containerClickHandler = (id) => {
     // Our App needs a way to know which object was clicked on
@@ -47,12 +37,12 @@ class App extends React.Component {
     this.setState({ beyArray: [...this.state.beyArray, beyObj] })
   }
 
-  filteredFavoriteBeys = () => {
-    return this.searchArray().filter((beyObj) => beyObj.favorite)
+  filteredBeys = () => {
+    return this.state.beyArray.filter((beyObj) => beyObj.favorite)
   }
 
   sortedBeys = () => {
-    return this.searchArray().sort((beyObjA, beyObjB) => beyObjB.num_of_clicks - beyObjA.num_of_clicks)
+    return this.state.beyArray.sort((beyObjA, beyObjB) => beyObjB.num_of_clicks - beyObjA.num_of_clicks)
   }
 
   render() {
@@ -61,10 +51,9 @@ class App extends React.Component {
       <div>
 
         <CreateForm submitHandler={this.submitHandler} />
-        <SearchForm value={this.state.searchTerm} changeHandler={this.searchHandler} />
         <div className="container">
           <BeyContainer array={this.sortedBeys()} clickHandler={this.containerClickHandler} />
-          <Favorites array={this.filteredFavoriteBeys()} clickHandler={this.favoriteClickHandler} />
+          <Favorites array={this.filteredBeys()} clickHandler={this.favoriteClickHandler} />
         </div>
       </div>
     );
